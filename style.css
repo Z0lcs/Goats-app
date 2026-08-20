@@ -1,0 +1,313 @@
+:root {
+    --bg-color: #121212;
+    --card-bg: #1e1e1e;
+    --text-primary: #e0e0e0;
+    --text-secondary: #a0a0a0;
+    --border-radius: 12px;
+    --box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    background-color: var(--card-bg);
+    padding: 15px 20px;
+    border-radius: var(--border-radius);
+    margin-bottom: 30px;
+    box-shadow: var(--box-shadow);
+    gap: 15px;
+}
+
+ul li a {
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+ul li a:hover, ul li.active a {
+    color: #ffffff;
+    background-color: #333333;
+}
+
+/* --- Tervek oldal konténer (eredeti, keskeny) --- */
+.container {
+    width: 100%;
+    max-width: 500px;
+    background-color: var(--card-bg);
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+/* --- Tartozások oldal konténer (szélesebb a 4 doboz miatt) --- */
+.container-tartozasok {
+    width: 100%;
+    max-width: 1000px;
+    background-color: var(--card-bg);
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+h1 {
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+    color: #ffffff;
+    text-align: center;
+}
+
+/* --- Input mezők (Tervek oldal) --- */
+.input {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.input input[type="text"] {
+    flex: 1;
+    padding: 12px 15px;
+    background-color: #2a2a2a;
+    border: 1px solid #3d3d3d;
+    border-radius: 8px;
+    color: #ffffff;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.input input[type="text"]:focus {
+    border-color: #6366f1;
+}
+
+.input input[type="button"] {
+    background-color: #6366f1;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.input input[type="button"]:hover {
+    background-color: #4f46e5;
+}
+
+/* --- Tartozások oldal input csoportja (4 mező elrendezése) --- */
+.input-tartozasok {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr auto;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.input-tartozasok input {
+    padding: 12px 15px;
+    background-color: #2a2a2a;
+    border: 1px solid #3d3d3d;
+    border-radius: 8px;
+    color: #ffffff;
+    font-size: 0.95rem;
+    outline: none;
+    width: 100%;
+}
+
+.input-tartozasok input:focus {
+    border-color: #6366f1;
+}
+
+.input-tartozasok input[type="button"] {
+    background-color: #6366f1;
+    color: white;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    padding: 12px 20px;
+}
+
+.input-tartozasok input[type="button"]:hover {
+    background-color: #4f46e5;
+}
+
+/* --- Dinamikus Tervek Lista --- */
+.tervek {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.terv-item {
+    display: flex;
+    align-items: center;
+    background-color: #2a2a2a;
+    padding: 12px 15px;
+    border-radius: 8px;
+    gap: 12px;
+    border: 1px solid #333;
+}
+
+.terv-item input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #6366f1;
+    cursor: pointer;
+}
+
+.terv-item span {
+    flex: 1;
+    font-size: 1rem;
+    word-break: break-word;
+    color: #f3f4f6;
+}
+
+.terv-item.completed {
+    background-color: #181818;
+    border-color: #222;
+    opacity: 0.6;
+}
+
+.terv-item.completed span {
+    text-decoration: line-through;
+    color: #6b7280;
+}
+
+/* --- 4 különálló doboz rács elrendezése (Tartozások) --- */
+.tartozasok-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.box {
+    background-color: #242424;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: var(--box-shadow);
+    display: flex;
+    flex-direction: column;
+    min-height: 220px;
+    border-top: 4px solid transparent;
+}
+
+.box h3 {
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    color: var(--text-primary);
+    text-align: center;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #333;
+}
+
+/* Egyedi színjelölések a nevekhez */
+.box:has(.akos) { border-top-color: #ef5350; } 
+.box:has(.feri) { border-top-color: #42a5f5; } 
+.box:has(.zali) { border-top-color: #66bb6a; } 
+.box:has(.zoli) { border-top-color: #ab47bc; } 
+
+.tartozas-kartya {
+    background-color: #2c2c2c;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    border-left: 3px solid transparent;
+    font-size: 0.9rem;
+    color: var(--text-primary);
+}
+
+.box .akos .tartozas-kartya { border-left-color: #ef5350; }
+.box .feri .tartozas-kartya { border-left-color: #42a5f5; }
+.box .zali .tartozas-kartya { border-left-color: #66bb6a; }
+.box .zoli .tartozas-kartya { border-left-color: #ab47bc; }
+
+.tartozas-kartya span {
+    display: block;
+}
+
+.tartozas-kartya strong {
+    color: white;
+    font-weight: 600;
+}
+
+/* Üres állapot szövegek */
+.akos:empty, .feri:empty, .zali:empty, .zoli:empty {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    color: var(--text-secondary);
+    font-style: italic;
+    font-size: 0.85rem;
+}
+
+.akos:empty::after { content: "Még nincs tartozás"; }
+.feri:empty::after { content: "Még nincs tartozás"; }
+.zali:empty::after { content: "Még nincs tartozás"; }
+.zoli:empty::after { content: "Még nincs tartozás"; }
+
+/* Reszponzivitás kisebb képernyőkre */
+@media (max-width: 900px) {
+    .input-tartozasok {
+        grid-template-columns: 1fr 1fr;
+    }
+    .tartozasok-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    ul {
+        flex-direction: column;
+        text-align: center;
+    }
+    .input-tartozasok, .tartozasok-grid {
+        grid-template-columns: 1fr;
+    }
+}
+.input-tartozasok select {
+    padding: 12px 15px;
+    background-color: #2a2a2a;
+    border: 1px solid #3d3d3d;
+    border-radius: 8px;
+    color: #ffffff;
+    font-size: 0.95rem;
+    outline: none;
+    width: 100%;
+    cursor: pointer;
+}
+
+.input-tartozasok select:focus {
+    border-color: #6366f1;
+}
+
+.input-tartozasok select option {
+    background-color: #2a2a2a;
+    color: #ffffff;
+}
+
+.tartozas-kartya span[title="Törlés"]:hover {
+    opacity: 0.7;
+    transform: scale(1.1);
+    transition: 0.2s;
+}
