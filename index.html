@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +8,16 @@
     <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    
+<h1>teszt</h1>
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Non atque suscipit, dolorem beatae quo corrupti saepe! Tenetur, saepe! Ipsum quo magnam ab repellat error quasi ipsam aut quidem dolores autem.
 </body>
+<script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('sw.js')
+            .then(() => console.log('Service Worker regisztrálva'));
+    }
+</script>
+
 </html>
