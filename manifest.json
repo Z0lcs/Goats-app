@@ -1,7 +1,8 @@
 {
   "name": "Goats App",
-  "short_name": "App",
-  "start_url": "/",
+  "short_name": "Goats",
+  "start_url": "/Goats-app/",
+  "scope": "/Goats-app/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#000000",
