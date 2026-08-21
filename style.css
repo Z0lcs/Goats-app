@@ -50,7 +50,7 @@ ul li.active a {
     background-color: #333333;
 }
 
-/* --- Tervek oldal konténer (eredeti, keskeny) --- */
+/* --- Tervek oldal konténer (eredeti) --- */
 .container {
     width: 100%;
     max-width: 500px;
@@ -60,7 +60,7 @@ ul li.active a {
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
 }
 
-/* --- Tartozások oldal konténer (szélesebb a 4 doboz miatt) --- */
+/* --- Tartozások oldal konténer (eredeti) --- */
 .container-tartozasok {
     width: 100%;
     max-width: 1000px;
@@ -115,7 +115,7 @@ h1 {
     background-color: #4f46e5;
 }
 
-/* --- Tartozások oldal input csoportja (4 mező elrendezése) --- */
+/* --- Tartozások oldal input csoportja --- */
 .input-tartozasok {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr auto;
@@ -123,7 +123,8 @@ h1 {
     margin-bottom: 30px;
 }
 
-.input-tartozasok input {
+.input-tartozasok input,
+.input-tartozasok select {
     padding: 12px 15px;
     background-color: #2a2a2a;
     border: 1px solid #3d3d3d;
@@ -134,8 +135,18 @@ h1 {
     width: 100%;
 }
 
-.input-tartozasok input:focus {
+.input-tartozasok select {
+    cursor: pointer;
+}
+
+.input-tartozasok input:focus,
+.input-tartozasok select:focus {
     border-color: #6366f1;
+}
+
+.input-tartozasok select option {
+    background-color: #2a2a2a;
+    color: #ffffff;
 }
 
 .input-tartozasok input[type="button"] {
@@ -222,21 +233,10 @@ h1 {
 }
 
 /* Egyedi színjelölések a nevekhez */
-.box:has(.akos) {
-    border-top-color: #ef5350;
-}
-
-.box:has(.feri) {
-    border-top-color: #42a5f5;
-}
-
-.box:has(.zali) {
-    border-top-color: #66bb6a;
-}
-
-.box:has(.zoli) {
-    border-top-color: #ab47bc;
-}
+.box:has(.akos) { border-top-color: #ef5350; }
+.box:has(.feri) { border-top-color: #42a5f5; }
+.box:has(.zali) { border-top-color: #66bb6a; }
+.box:has(.zoli) { border-top-color: #ab47bc; }
 
 .tartozas-kartya {
     background-color: #2c2c2c;
@@ -248,21 +248,10 @@ h1 {
     color: var(--text-primary);
 }
 
-.box .akos .tartozas-kartya {
-    border-left-color: #ef5350;
-}
-
-.box .feri .tartozas-kartya {
-    border-left-color: #42a5f5;
-}
-
-.box .zali .tartozas-kartya {
-    border-left-color: #66bb6a;
-}
-
-.box .zoli .tartozas-kartya {
-    border-left-color: #ab47bc;
-}
+.box .akos .tartozas-kartya { border-left-color: #ef5350; }
+.box .feri .tartozas-kartya { border-left-color: #42a5f5; }
+.box .zali .tartozas-kartya { border-left-color: #66bb6a; }
+.box .zoli .tartozas-kartya { border-left-color: #ab47bc; }
 
 .tartozas-kartya span {
     display: block;
@@ -273,11 +262,14 @@ h1 {
     font-weight: 600;
 }
 
+.tartozas-kartya span[title="Törlés"]:hover {
+    opacity: 0.7;
+    transform: scale(1.1);
+    transition: 0.2s;
+}
+
 /* Üres állapot szövegek */
-.akos:empty,
-.feri:empty,
-.zali:empty,
-.zoli:empty {
+.akos:empty, .feri:empty, .zali:empty, .zoli:empty {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -287,23 +279,111 @@ h1 {
     font-size: 0.85rem;
 }
 
-.akos:empty::after {
+.akos:empty::after, .feri:empty::after, .zali:empty::after, .zoli:empty::after {
     content: "Még nincs tartozás";
 }
 
-.feri:empty::after {
-    content: "Még nincs tartozás";
+/* --- EREDETI FŐOLDAL (INDEX) ELRENDEZÉS --- */
+.hatter {
+    display: grid;
+    padding: 50px;
+    grid-template-columns: 4fr;
+    grid-template-rows: 2fr;
+    gap: 40px;
 }
 
-.zali:empty::after {
-    content: "Még nincs tartozás";
+.videok {
+    margin: auto;
+    width: 700px;
+    height: 700px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--card-bg);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    padding: 20px;
+    gap: 15px;
+    grid-column: 1 / 2;
+    grid-row: 1 / 3;
 }
 
-.zoli:empty::after {
-    content: "Még nincs tartozás";
+.videok iframe {
+    width: 600px;
+    height: 600px;
+    border-radius: 8px;
 }
 
-/* Reszponzivitás kisebb képernyőkre */
+.kepek {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: var(--card-bg);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    grid-column: 2 / 4;
+    padding: 20px;
+    gap: 10px;
+}
+
+.naptar {
+    margin: auto;
+    background-color: var(--card-bg);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    grid-column: 2 / 4;
+    padding: 20px;
+}
+
+.naptar iframe {
+    width: 600px;
+    height: 350px;
+}
+
+.kepek img {
+    border-radius: 15px;
+    box-shadow: black 1px 2px 3px;
+    width: 200px;
+}
+
+#hatrebb {
+    filter: blur(2.5px);
+    width: 150px;
+    height: 150px;
+}
+
+.nyil {
+    font-size: xx-large;
+}
+
+/* --- CSANÁK KISEBB KÉPERNYŐKRE (Reszponzivitás) --- */
+
+@media screen and (max-width: 1200px) {
+    .hatter {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+    }
+
+    .videok, .kepek, .naptar {
+        width: 100%;
+        max-width: 700px;
+        height: auto;
+    }
+
+    .videok iframe {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1 / 1; /* Megtartja az eredeti szögletes arányt */
+    }
+
+    .naptar iframe {
+        width: 100%;
+    }
+}
+
 @media (max-width: 900px) {
     .input-tartozasok {
         grid-template-columns: 1fr 1fr;
@@ -315,86 +395,31 @@ h1 {
 }
 
 @media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
     ul {
         flex-direction: column;
         text-align: center;
+        width: 100%;
     }
 
     .input-tartozasok,
     .tartozasok-grid {
         grid-template-columns: 1fr;
     }
-}
 
-.input-tartozasok select {
-    padding: 12px 15px;
-    background-color: #2a2a2a;
-    border: 1px solid #3d3d3d;
-    border-radius: 8px;
-    color: #ffffff;
-    font-size: 0.95rem;
-    outline: none;
-    width: 100%;
-    cursor: pointer;
-}
+    .kepek img {
+        width: 120px;
+    }
 
-.input-tartozasok select:focus {
-    border-color: #6366f1;
-}
+    #hatrebb {
+        width: 90px;
+        height: 90px;
+    }
 
-.input-tartozasok select option {
-    background-color: #2a2a2a;
-    color: #ffffff;
-}
-
-.tartozas-kartya span[title="Törlés"]:hover {
-    opacity: 0.7;
-    transform: scale(1.1);
-    transition: 0.2s;
-}
-
-.hatter {
-    width: 80%;
-    height: 200%;
-    display: grid;
-    background-color: var(--card-bg);
-    padding: 50px;
-    border-radius: 15px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
-    grid-template-columns: 4fr;
-    grid-template-rows: 2fr;
-    gap: 80px;
-}
-
-.videok{
-    margin: auto;
-    border: 1px solid red;
-    grid-column: 1 / 2;
-    grid-row: 1/3;
-}
-
-.kepek{
-    display: flex;
-    flex-wrap: wrap;
-    border: 1px solid blue;
-    grid-column: 2/4;
-    padding: 20px;
-    gap: 10px;
-    
-}
-
-.naptar{
-    margin: auto;
-    border: 1px solid pink;
-    grid-column: 2/4;
-
-}
-
-.hatrebb{
-    filter: blur(2.5px);
-}
-
-.kepek img{
-    border-radius: 15px;
-    box-shadow: black 1px 2px 3px;
+    .naptar iframe {
+        height: 300px;
+    }
 }
