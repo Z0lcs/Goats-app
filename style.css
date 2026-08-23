@@ -447,12 +447,13 @@ h1 {
     }
 
     #hatrebb {
-        width: 90px;
-        height: 90px;
+        width: 80px;
+        height: 80px;
     }
 
     .naptar iframe {
         height: 300px;
+        width: 370px;
     }
 
     .input input[type="text"] {
