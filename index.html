@@ -29,25 +29,23 @@
         </div>
 
         <div class="kepek">
-            <i class="fa-solid fa-caret-left nyil" style="color: rgb(255, 255, 255);"></i>
-            <img id="hatrebb" src="Images/Fecó.jpg" alt="Ferike">
-            <img src="Images/Fecó.jpg" alt="Ferike">
-            <img id="hatrebb" src="Images/Fecó.jpg" alt="Ferike">
-            <i class="fa-solid fa-caret-right nyil" style="color: rgb(255, 255, 255);"></i>
+            <i class="fa-solid fa-caret-left nyil" style="color: rgb(255, 255, 255);" onclick="eloKep()"></i>
+
+            <img id="kepBal" class="hatrebb" src="" alt="Előző kép">
+            <img id="kepKozep" src="" alt="Aktuális kép">
+            <img id="kepJobb" class="hatrebb" src="" alt="Következő kép">
+
+            <i class="fa-solid fa-caret-right nyil" style="color: rgb(255, 255, 255);" onclick="kovKep()"></i>
         </div>
 
         <div class="naptar">
             <iframe
                 src="https://calendar.google.com/calendar/embed?height=600&wkst=2&ctz=Europe%2FBudapest&showPrint=0&hl=hu&showTitle=0&showTabs=0&showTz=0&src=YWtvc2hlcmN6ZWcwOEBnbWFpbC5jb20&src=YWIwMDcxNzM4ODg5MTFjNjI3ZDhiNDNlMjY4ZTE4OTVlNmU2NzUzNGVmNTljN2ZmMGM1MmY4YjJjYmViZDQ2NUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=aHUuaHVuZ2FyaWFuI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&color=%238e24aa&color=%239e69af&color=%23e67c73"
-                style="border-width:0"  height="350" frameborder="0" scrolling="no"></iframe>
+                style="border-width:0" height="350" frameborder="0" scrolling="no"></iframe>
         </div>
     </div>
 </body>
-<script>
-    if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('sw.js')
-            .then(() => console.log('Service Worker regisztrálva'));
-    }
-</script>
+
+<script src="JS files/kep-mozgatas.js"></script>
 
 </html>
