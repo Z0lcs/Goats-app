@@ -1,0 +1,86 @@
+.container {
+    width: 100%;
+    max-width: 500px;
+    background-color: var(--card-bg);
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.input {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.input input[type="text"] {
+    flex: 1;
+    padding: 12px 15px;
+    background-color: #2a2a2a;
+    border: 1px solid #3d3d3d;
+    border-radius: 8px;
+    color: #ffffff;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.input input[type="text"]:focus {
+    border-color: #6366f1;
+}
+
+.input input[type="button"] {
+    background-color: #6366f1;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.input input[type="button"]:hover {
+    background-color: #4f46e5;
+}
+
+.tervek {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.terv-item {
+    display: flex;
+    align-items: center;
+    background-color: #2a2a2a;
+    padding: 12px 15px;
+    border-radius: 8px;
+    gap: 12px;
+    border: 1px solid #333;
+}
+
+.terv-item input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #6366f1;
+    cursor: pointer;
+}
+
+.terv-item span {
+    flex: 1;
+    font-size: 1rem;
+    word-break: break-word;
+    color: #f3f4f6;
+}
+
+.terv-item.completed {
+    background-color: #181818;
+    border-color: #222;
+    opacity: 0.6;
+}
+
+.terv-item.completed span {
+    text-decoration: line-through;
+    color: #6b7280;
+}
