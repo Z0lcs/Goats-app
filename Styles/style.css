@@ -50,6 +50,32 @@ ul li.active a {
     background-color: #333333;
 }
 
+#kepFeltoltesGomb {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+}
+
+#kepFeltoltesGomb.feltoltes-folyamatban {
+    pointer-events: none;
+    color: #ffffff;
+    background-color: #333333;
+    animation: feltoltes-pulzalas 1s ease-in-out infinite;
+}
+
+@keyframes feltoltes-pulzalas {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.4;
+    }
+}
+
 h1 {
     font-size: 1.8rem;
     margin-bottom: 25px;
@@ -111,6 +137,10 @@ h1 {
     filter: blur(2.5px);
     width: 120px;
     height: 120px;
+}
+
+.kepek i:hover{
+    cursor: pointer;
 }
 
 .naptar {
@@ -191,7 +221,8 @@ h1 {
         aspect-ratio: 1 / 1;
         object-fit: cover;
     }
-    .kepek img.hatrebb{
+
+    .kepek img.hatrebb {
         flex: 0 1 auto;
         width: 70px;
         height: 70px;

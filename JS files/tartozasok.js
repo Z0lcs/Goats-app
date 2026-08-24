@@ -1,9 +1,3 @@
-const SUPABASE_URL = 'https://bvositlxbeqztnhdembx.supabase.co';
-const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJ2b3NpdGx4YmVxenRuaGRlbWJ4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODcyMTY3NzAsImV4cCI6MjEwMjc5Mjc3MH0.41fAH1kEGYYmXSmS0Ny4lkYuXe2N5_pSPX2VVKYzhkQ';
-
-const { createClient } = supabase;
-const _supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-
 window.onload = function () {
     loadTartozasok();
 };
@@ -19,7 +13,6 @@ async function loadTartozasok() {
         return;
     }
 
-    // Kiürítjük a dobozokat
     document.querySelector('.akos').innerHTML = '';
     document.querySelector('.feri').innerHTML = '';
     document.querySelector('.zali').innerHTML = '';
@@ -40,12 +33,26 @@ async function loadTartozasok() {
             const card = document.createElement('div');
             card.className = 'tartozas-kartya';
 
-            card.innerHTML = `
-                    <div style="display: flex; justify-content: space-between; align-items: center;">
-                        <span>${item.kinek} ${item.mennyiert} Ft ${item.miert}</span>
-                        <span onclick="deleteTartozas(${item.id})" style="cursor: pointer; font-size: 1.1rem; padding-left: 8px;" title="Törlés">🗑️</span>
-                    </div>
-                `;
+            const row = document.createElement('div');
+            row.style.display = 'flex';
+            row.style.justifyContent = 'space-between';
+            row.style.alignItems = 'center';
+
+            const textSpan = document.createElement('span');
+            textSpan.textContent = `${item.kinek} ${item.mennyiert} Ft ${item.miert}`;
+
+            const deleteSpan = document.createElement('span');
+            deleteSpan.textContent = '🗑️';
+            deleteSpan.style.cursor = 'pointer';
+            deleteSpan.style.fontSize = '1.1rem';
+            deleteSpan.style.paddingLeft = '8px';
+            deleteSpan.title = 'Törlés';
+            deleteSpan.addEventListener('click', () => deleteTartozas(item.id));
+
+            row.appendChild(textSpan);
+            row.appendChild(deleteSpan);
+            card.appendChild(row);
+
             targetDiv.appendChild(card);
         } else {
             console.warn('Nem található ilyen doboz:', normalizedName);
@@ -64,7 +71,6 @@ async function deleteTartozas(id) {
         return;
     }
 
-    // Újratöltjük a listát, hogy eltűnjön a kártya
     loadTartozasok();
 }
 
@@ -94,7 +100,6 @@ async function addTartozas() {
         return;
     }
 
-    // Mezők tisztítása
     document.getElementById('miertInput').value = '';
     document.getElementById('mennyiertInput').value = '';
     document.getElementById('kinekInput').selectedIndex = 0;

@@ -8,6 +8,7 @@
     <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="Styles/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 
 <body>
@@ -16,7 +17,15 @@
         <li class="active"><a href="index.html">Főoldal</a></li>
         <li><a href="tartozasok.html">Tartozások</a></li>
         <li><a href="tervek.html">Tervek</a></li>
+        <li>
+            <a href="#" id="kepFeltoltesGomb" onclick="nyisdMegFajlValasztot(); return false;" title="Kép feltöltése">
+                <i class="fa-solid fa-upload"></i>
+            </a>
+        </li>
     </ul>
+
+    <!-- Rejtett fájlbeviteli mező a kép feltöltéshez. Mobilon kamera/galéria választót nyit, gépen fájlböngészőt. -->
+    <input type="file" id="kepFeltoltesInput" accept="image/*" multiple style="display: none;">
 
     <div class="hatter">
         <div class="videok">
@@ -46,6 +55,7 @@
     </div>
 </body>
 
+<script src="JS files/supabase-client.js"></script>
 <script src="JS files/kep-mozgatas.js"></script>
 
 </html>
