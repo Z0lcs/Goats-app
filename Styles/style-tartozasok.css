@@ -156,3 +156,34 @@
 .input-tartozasok input[type="button"]:hover {
     background-color: #4f46e5;
 }
+
+@media (max-width: 900px) {
+    .input-tartozasok {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .tartozasok-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    ul {
+        flex-direction: column;
+        text-align: center;
+        width: 100%;
+    }
+
+    .input-tartozasok,
+    .tartozasok-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .input input[type="text"] {
+        width: 40px;
+    }
+}
