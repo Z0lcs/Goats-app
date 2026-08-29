@@ -1,3 +1,10 @@
+:root {
+    --zoli: #470047;
+    --zalan: #15BF16;
+    --feri: #5D3FD3;
+    --akos: #FF7F50;
+}
+
 .container-tartozasok {
     width: 100%;
     max-width: 1000px;
@@ -34,19 +41,19 @@
 }
 
 .box:has(.akos) {
-    border-top-color: #ef5350;
+    border-top-color: var(--akos);
 }
 
 .box:has(.feri) {
-    border-top-color: #42a5f5;
+    border-top-color: var(--feri);
 }
 
-.box:has(.zali) {
-    border-top-color: #66bb6a;
+.box:has(.zalan) {
+    border-top-color: var(--zalan);
 }
 
 .box:has(.zoli) {
-    border-top-color: #ab47bc;
+    border-top-color: var(--zoli);
 }
 
 .tartozas-kartya {
@@ -60,19 +67,19 @@
 }
 
 .box .akos .tartozas-kartya {
-    border-left-color: #ef5350;
+    border-left-color: var(--akos);
 }
 
 .box .feri .tartozas-kartya {
-    border-left-color: #42a5f5;
+    border-left-color: var(--feri);
 }
 
-.box .zali .tartozas-kartya {
-    border-left-color: #66bb6a;
+.box .zalan .tartozas-kartya {
+    border-left-color: var(--zalan);
 }
 
 .box .zoli .tartozas-kartya {
-    border-left-color: #ab47bc;
+    border-left-color: var(--zoli);
 }
 
 .tartozas-kartya span {
@@ -92,7 +99,7 @@
 
 .akos:empty,
 .feri:empty,
-.zali:empty,
+.zalan:empty,
 .zoli:empty {
     display: flex;
     justify-content: center;
@@ -105,7 +112,7 @@
 
 .akos:empty::after,
 .feri:empty::after,
-.zali:empty::after,
+.zalan:empty::after,
 .zoli:empty::after {
     content: "Még nincs tartozás";
 }
@@ -168,15 +175,6 @@
 }
 
 @media (max-width: 600px) {
-    body {
-        padding: 10px;
-    }
-
-    ul {
-        flex-direction: column;
-        text-align: center;
-        width: 100%;
-    }
 
     .input-tartozasok,
     .tartozasok-grid {

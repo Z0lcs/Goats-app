@@ -113,6 +113,7 @@ h1 {
 }
 
 .kepek {
+    position: relative; /* Szükséges az abszolút pozicionáláshoz */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -122,6 +123,18 @@ h1 {
     grid-column: 2 / 4;
     padding: 20px;
     gap: 15px;
+}
+
+#kepFeltoltesGomb {
+    position: absolute;
+    top: 20px;   /* Felső sarokhoz való igazítás */
+    right: 20px; /* Jobb sarokhoz való igazítás */
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    color: white;
 }
 
 .kepek img {
@@ -161,6 +174,10 @@ h1 {
 .nyil {
     font-size: xx-large;
     margin: -.5rem;
+}
+
+.video-nyil{
+    visibility: hidden;
 }
 
 @media screen and (max-width: 1200px) {
@@ -213,6 +230,11 @@ h1 {
         gap: 8px;
     }
 
+    #kepFeltoltesGomb{
+        top: 10px;
+        right: 10px;
+    }
+
     .kepek img {
         flex: 1 1 0;
         width: auto;
@@ -239,7 +261,7 @@ h1 {
     ul {
         flex-direction: column;
         text-align: center;
-        width: 100%;
+        width: 50%;
     }
 
     .input-tartozasok,

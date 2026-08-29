@@ -15,7 +15,7 @@ async function loadTartozasok() {
 
     document.querySelector('.akos').innerHTML = '';
     document.querySelector('.feri').innerHTML = '';
-    document.querySelector('.zali').innerHTML = '';
+    document.querySelector('.zalan').innerHTML = '';
     document.querySelector('.zoli').innerHTML = '';
 
     data.forEach(item => {
